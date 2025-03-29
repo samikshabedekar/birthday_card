@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amy's Birthday Card</title>
+    <link rel="stylesheet" href="./style.css">
+    <style> 
+        /* Container for the text roll */
+        .text-container1 {
+            position: absolute; /* Place text container on top */
+            top: 70px; /* Adjust this value to position it vertically */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 500px; /* Adjust based on desired width */
+            height: 40px; /* Height for one phrase to be visible at a time */
+            overflow: hidden; /* Hide the part of the text outside the container */
+            z-index: 2; /* Ensure the text stays above the envelope */
+        }
+
+        .text-container2 {
+            position: absolute; /* Place text container on top */
+            top: 600px; /* Adjust this value to position it vertically */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 500px; /* Adjust based on desired width */
+            height: 40px; /* Height for one phrase to be visible at a time */
+            overflow: hidden; /* Hide the part of the text outside the container */
+            z-index: 2; /* Ensure the text stays above the envelope */
+        }
+        /* The actual text that will scroll up and down */
+        .text1 {
+            position: absolute;
+            top: 100%; /* Start below the container */
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Courier', 'monospace';
+            text-align: center;
+            font-size: 2em;
+            color: rgb(255, 255, 255);
+            white-space: nowrap;
+            animation: textRollUpDown 8s ease-in-out infinite; 
+            text-shadow: 0 0 10px #FFFFFF, 0 0 20px #FFFFFF, 0 0 30px #FFFFFF, 0 0 40px #FFFFFF; */
+        }
+    
+        
+
+        @keyframes textRollUpDown {
+            0% {
+                top: 100%;
+            }
+            25% {
+                top: 0;
+            }
+            50% {
+                top: 0;
+            }
+            75% {
+                top: -100%;
+            }
+            100% {
+                top: 100%;
+            }
+        }
+
+        .text-container1 .text1 span {
+            display: block;
+        }
+        .instruction {
+            text-align: center;
+            /* font-weight: bold; */
+            font-size: 10px;
+            margin-top: 10px;
+            color: #ffffff;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="text-container1">
+        <div class="text1">
+            <span>Happy Birthday!</span>
+            <span>Joyeux Anniversaire!</span>
+        </div>
+    </div>
+    <div class="text-container2"> 
+        <p class="instruction">Click on the heart to open the letter </p>
+    </div>
+    <div class="container">
+        <div class="envelope-wrapper">
+            <div class="envelope">
+                <div class="letter">
+                    <div class="text">
+                        <strong>Dear Amy,</strong>
+                        <p>
+                            Thank you for always making work fun at Rejuice, introducing me to new things like the world of metal, and taking me to New York for my first-ever concert! I miss hanging out with you and snacking on fries.Looking forward to more fun times and crafty hangouts with you!
+Wishing you a wonderful future—hope this gift lights up your life and your room 😉
+<br><center>Happy Birthday again! </center>
+</p>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="heart"></div>
+        </div>
+    </div>
+    
+    <script>
+        const envelope = document.querySelector('.envelope-wrapper');
+        envelope.addEventListener('click', () => {
+            envelope.classList.toggle('flap');
+        });
+    </script>
+    
+</body>
+
+
+</html>
